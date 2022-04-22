@@ -47,6 +47,7 @@ $pb: 1.2vw;
     font-size: 0.9vw;
 }
 .input {
+    font-size: 1.35vw;
     position: relative;
     z-index: 220;
     background-color: transparent;

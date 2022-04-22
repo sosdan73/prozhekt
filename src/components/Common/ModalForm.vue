@@ -47,19 +47,21 @@ import FormInput from './FormInput.vue';
 import FormTextarea from './FormTextarea.vue';
 import FormSelect from './FormSelect.vue';
 
+const voidData = {
+    name: '',
+    phone: '',
+    tg: '',
+    info: '',
+    howToReach: 'телефон',
+}
+
 export default {
     name: 'ModalForm',
     components: { FormInput, FormTextarea, FormSelect, },
     data() {
         return {
             visible: false,
-            form: {
-                name: '',
-                phone: '',
-                tg: '',
-                info: '',
-                howToReach: 'телефон',
-            },
+            form: {...voidData},
         }
     },
     beforeMount() {
@@ -75,11 +77,14 @@ export default {
         },
         hide() {
             document.body.style = '';
+            this.form = {...voidData};
             this.visible = false;
         },
         async onSubmit() {
             axios.post('link-here', {
                 data: this.form
+            }).then(() => {
+                this.hide();
             }).catch(err => {
                 console.error(err);
             })
@@ -118,6 +123,7 @@ export default {
     right: 0;
     width: 5.5vw;
     height: 5.5vw;
+    cursor: pointer;
 }
 .form__window {
     position: relative;

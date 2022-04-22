@@ -129,6 +129,7 @@ export default {
     height: 5.5vw;
 
     background-color: $lightgrey;
+    cursor: pointer;
 }
 .cross__left-line,
 .cross__right-line {
