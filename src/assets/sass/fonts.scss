@@ -1,0 +1,59 @@
+@font-face {
+    font-family: "Montserrat";
+    src:    url('../fonts/montserrat/montserrat.woff2') format('woff2'),
+            url('../fonts/montserrat/montserrat.woff') format('woff'),
+            url('../fonts/montserrat/montserrat.ttf')  format('truetype');
+};
+
+@font-face {
+    font-family: "Montserrat-Semibold";
+    src:    url('../fonts/montserrat/montserrat-semibold.woff2') format('woff2'),
+            url('../fonts/montserrat/montserrat-semibold.woff') format('woff'),
+            url('../fonts/montserrat/montserrat-semibold.ttf')  format('truetype');
+};
+
+@font-face {
+    font-family: "Montserrat-Bold";
+    src:    url('../fonts/montserrat/montserrat-bold.woff2') format('woff2'),
+            url('../fonts/montserrat/montserrat-bold.woff') format('woff'),
+            url('../fonts/montserrat/montserrat-bold.ttf')  format('truetype');
+};
+
+@font-face {
+    font-family: "Montserrat-Extrabold";
+    src:    url('../fonts/montserrat/montserrat-extrabold.woff2') format('woff2'),
+            url('../fonts/montserrat/montserrat-extrabold.woff') format('woff'),
+            url('../fonts/montserrat/montserrat-extrabold.ttf')  format('truetype');
+};
+
+@font-face {
+    font-family: "Duck4game";
+    src:    url('../fonts/duck4game/duck4game.woff2') format('woff2'),
+            url('../fonts/duck4game/duck4game.woff') format('woff'),
+            url('../fonts/duck4game/duck4game.ttf')  format('truetype');
+};
+
+@font-face {
+    font-family: 'PT Sans';
+    src: local('PT Sans'), local('PTSans-Regular'), url('../fonts/ptsans/ptsans.woff2') format('woff2'), url('../fonts/ptsans/ptsans.woff') format('woff'), url('../fonts/ptsans/ptsans.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'PT Sans';
+    src: local('PT Sans Italic'), local('PTSans-Italic'), url('../fonts/ptsans/ptsansitalic.woff2') format('woff2'), url('../fonts/ptsans/ptsansitalic.woff') format('woff'), url('../fonts/ptsans/ptsansitalic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'PT Sans';
+    src: local('PT Sans Bold'), local('PTSans-Bold'), url('../fonts/ptsans/ptsansbold.woff2') format('woff2'), url('../fonts/ptsans/ptsansbold.woff') format('woff'), url('../fonts/ptsans/ptsansbold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'PT Sans';
+    src: local('PT Sans Bold Italic'), local('PTSans-BoldItalic'), url('../fonts/ptsans/ptsansbolditalic.woff2') format('woff2'), url('../fonts/ptsans/ptsansbolditalic.woff') format('woff'), url('../fonts/ptsans/ptsansbolditalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}

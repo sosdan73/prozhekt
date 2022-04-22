@@ -1,0 +1,124 @@
+@import "fonts";
+@import "colors";
+
+.dark {
+    background-color: $dark;
+    color: $white;
+}
+.bg-pink {
+    background-color: $pink;
+}
+.text-grey {
+    color: $grey;
+}
+.bg-lightgrey {
+    background-color: $lightgrey;
+}
+.d-block {
+    display: block;
+}
+
+.pixel-button {
+    color: $white;
+    background-color: $orange;
+
+    &.--outline {
+        color: $orange;
+        background-color: $white;
+    }
+
+    outline: none;
+    border-radius: 0;
+    padding: 1.3vw 1.7vw 0.8vw;
+    border: 0.3125vw solid $orange;
+
+    font-size: 1.35vw;
+    line-height: 1.5;
+
+    transition: color .25s linear, background-color .25s linear;
+    font-family: "Duck4game";
+    cursor: pointer;
+    box-sizing: border-box;
+
+    &:hover {
+        color: $orange;
+        background-color: $white;
+
+        &.--outline {
+            color: $white;
+            background-color: $orange;
+        }
+    }
+}
+
+.app__offset {
+    padding-left: 8.5vw;
+    padding-right: 8.5vw;
+}
+
+.app__offset-s {
+    padding-left: 3.125vw;
+    padding-right: 3.125vw;
+}
+
+.app__offset-l {
+    padding-left: 15vw;
+    padding-right: 15vw;
+}
+
+.section {
+    position: relative;
+    padding-top: 9vw;
+    padding-bottom: 9vw;
+}
+.section__title {
+    font-size: 4vw;
+    font-family: 'Montserrat-Bold';
+    margin-bottom: 6.25vw;
+    text-transform: lowercase;
+}
+.section__subtitle {
+    font-size: 2.4vw;
+    font-family: 'Montserrat-Bold';
+    margin-bottom: 5.2vw;
+    text-transform: lowercase;
+}
+
+.content-centered {
+    width: 50vw;
+    padding-left: 33vw;
+    padding-right: 17vw;
+}
+
+.list {
+    list-style-type: "–   ";
+    padding-left: 24px;
+    margin-top: 0.8vw;
+}
+
+.list__item {
+    margin-bottom: 0.8vw;
+}
+
+.circle__border {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1.4vw solid $orange;
+    border-radius: 50%;
+}
+.circle__border > .circle {
+    width: 67%;
+    height: 67%;
+
+    border-radius: 50%;
+    background-color: $orange;
+}
+
+.arrow-svg > svg {
+    transition: fill .2s ease-in-out;
+}

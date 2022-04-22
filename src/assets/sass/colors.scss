@@ -1,0 +1,29 @@
+$grey: #666;
+$lightgrey: #f5f5f5;
+$dark-green: #068326;
+$orange: #fa8322;
+$purple: #bd25e3;
+$pink: #ffe5fa;
+$dark-blue: #1b1b21;
+$ochre: #e2b59e;
+$light-orange: #fce3d9;
+$dark: #313237;
+$yellow: #e4ee47;
+$red: #df2929;
+$blue: #226be8;
+$footer: #1b1b21;
+$white: #ffffff;
+
+.dark {
+    background-color: $dark;
+    color: $white;
+}
+.bg-pink {
+    background-color: $pink;
+}
+.text-grey {
+    color: $grey;
+}
+.bg-lightgrey {
+    background-color: $lightgrey;
+}

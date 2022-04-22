@@ -1,0 +1,14 @@
+@mixin underline($width) {
+    background-image: linear-gradient($dark-blue, $dark-blue);
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% $width;
+    padding-bottom: 0.3125vw;
+    padding-top: 0.3125vw;
+    transition: background 0.3s ease-in-out,
+                color 0.3s ease-in-out;
+}
+
+@mixin underline-active($width) {
+    background-size: 100% $width;
+}

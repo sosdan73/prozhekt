@@ -1,0 +1,37 @@
+
+
+
+$list: $orange, $blue, $purple, $dark-green, $dark-blue, $grey, $yellow, $red;
+@keyframes change_color {
+    0% {
+        color: nth($list, 1);
+    } 12% {
+        color: nth($list, 2);
+    } 25% {
+        color: nth($list, 3);
+    } 37% {
+        color: nth($list, 4);
+    } 50% {
+        color: nth($list, 5);
+    } 62% {
+        color: nth($list, 6);
+    } 75% {
+        color: nth($list, 7);
+    } 87% {
+        color: nth($list, 8);
+    } 100% {
+        color: nth($list, 1);
+    }
+}
+
+@keyframes circle_resize {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    } 60% {
+        opacity: 0.7;
+    } to {
+        opacity: 0;
+        transform: scale(2);
+    }
+}
