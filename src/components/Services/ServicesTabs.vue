@@ -15,6 +15,11 @@
 <script>
 export default {
     props: ['data'],
+    data() {
+        return {
+            isClickable: true,
+        }
+    },
     methods: {
         getTitle(item) {
             let title = '';
@@ -32,8 +37,20 @@ export default {
             return item.title.s
         },
         setActiveService(item) {
-            this.data.filter(service => service.isActive)[0].isActive = false;
-            item.isActive = true;
+            if (this.isClickable) {
+                this.isClickable = false;
+                setTimeout(() => {
+                    this.isClickable = true;
+                }, 400);
+
+                this.$emit('tabChange', item)
+
+                setTimeout(() => {
+                    this.data.filter(service => service.isActive)[0].isActive = false;
+                    item.isActive = true;
+                }, 200);
+                
+            }
         },
         animateTabsSwap() {
             this.$refs.tabs.classList.add('--transparent');

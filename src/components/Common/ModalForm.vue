@@ -65,7 +65,6 @@ export default {
         }
     },
     beforeMount() {
-        console.log('should work');
         ModalForm.EventBus.$on('show', () => {
             this.show()
         })

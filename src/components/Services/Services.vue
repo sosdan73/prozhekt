@@ -15,9 +15,13 @@
         <div ref="content">
             <ServicesContent :content="content" />
         </div>
-        <Arrow class="services__arrow" @click="nextTab"/>
+        <Arrow class="services__arrow" @click="onTabChange"/>
         <div class="services__tabs--transition">
-            <ServicesTabs :data="tabs" ref="tabs"/>
+            <ServicesTabs
+                :data="tabs"
+                ref="tabs"
+                @tabChange="onTabChange"
+            />
         </div>
     </div>
 </template>
@@ -70,30 +74,33 @@ export default {
                 }, 400);
             }
         },
-        nextTab() {
-            if (!this.sliding) {
-                this.sliding = true;
-                setTimeout(() => {
-                    this.sliding = false;
-                }, 400);
+        onTabChange(item = undefined) {
+            this.sliding = true;
+            setTimeout(() => {
+                this.sliding = false;
+            }, 400);
 
-                this.$refs.content.classList.add('services__before-slide');
-                setTimeout(() => {
-                    this.$refs.content.classList.add('services__after-slide');
-                    this.$refs.content.classList.remove('services__before-slide');
-                
-                    let activeServices = this.data.filter(item => item.isActive)[0];
-                    let index = activeServices.tabs.findIndex(tab => tab.isActive);
-                    activeServices.tabs[index].isActive = false;
+            this.$refs.content.classList.add('services__before-slide');
+            setTimeout(() => {
+                this.$refs.content.classList.add('services__after-slide');
+                this.$refs.content.classList.remove('services__before-slide');
+            
+                let activeServices = this.data.filter(item => item.isActive)[0];
+                let index = activeServices.tabs.findIndex(tab => tab.isActive);
+                activeServices.tabs[index].isActive = false;
 
-                    let newIndex = activeServices.tabs.length - 1 === index ? 0 : index + 1;
-                    activeServices.tabs[newIndex].isActive = true;
-                }, 200);
+                let newIndex;
+                if (item) {  
+                    newIndex = item.id
+                } else {
+                    newIndex = activeServices.tabs.length - 1 === index ? 0 : index + 1;
+                }
+                activeServices.tabs[newIndex].isActive = true;
+            }, 200);
 
-                setTimeout(() => {
-                    this.$refs.content.classList.remove('services__after-slide');
-                }, 400);
-            }
+            setTimeout(() => {
+                this.$refs.content.classList.remove('services__after-slide');
+            }, 400);
         },
     },
 }
