@@ -36,5 +36,7 @@ ul {
     font-family: 'PT Sans', sans-serif;
     font-size: 1.35vw;
     overflow-x: hidden;
+    max-width: 100vw;
+    width: 100vw;
 }
 </style>
