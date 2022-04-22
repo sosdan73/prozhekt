@@ -119,7 +119,7 @@
 </template>
 
 <script>
-import { GoTo } from '@/Mixins/GoTo.js';
+import { GoTo } from '@/mixins/GoTo.js';
 
 // Scroll height is ~4350
 const b = 4400;

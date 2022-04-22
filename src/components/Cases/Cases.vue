@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { GoTo } from '@/Mixins/GoTo.js';
+import { GoTo } from '@/mixins/GoTo.js';
 import { casesPersonal, casesBusiness } from '../../data';
 import CasesSlider from './CasesSlider.vue';
 

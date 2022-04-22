@@ -24,7 +24,7 @@
 
 <script>
 import { services } from '@/data.js';
-import { GoTo } from '@/Mixins/GoTo.js';
+import { GoTo } from '@/mixins/GoTo.js';
 import ServicesContent from './ServicesContent.vue';
 import ServicesTabs from './ServicesTabs.vue';
 import Arrow from '../Common/Arrow.vue';

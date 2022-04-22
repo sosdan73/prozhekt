@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { GoTo } from '@/Mixins/GoTo.js';
+import { GoTo } from '@/mixins/GoTo.js';
 import RotationBlock from './Common/RotationBlock.vue';
 
 export default {
