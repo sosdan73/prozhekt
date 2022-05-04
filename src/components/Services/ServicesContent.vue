@@ -135,9 +135,9 @@ export default {
 .services__lists {
     display: flex;
     
-    & > .list,
-    & > .services__list {
-        margin-right: 2vw;
+    & > .list:nth-child(2),
+    & > .services__list:nth-child(2) {
+        margin-left: 4vw;
     }
 }
 .services__list {
