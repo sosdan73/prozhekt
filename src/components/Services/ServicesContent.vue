@@ -37,13 +37,13 @@
             <p>{{ content.description }}</p>
         </div>
         <div class="services__row services__lists">
-            <ul class="list" v-if="content.listLeft.isNested">
+            <ul class="services__list --width-restricted" v-if="content.listLeft.isNested">
                 <li
-                    class="list__item"
+                    class="services__list-item"
                     :key="item.text"
                     v-for="item in content.listLeft.list"
                 >
-                    <span class="services__subtitle">{{ item.text }}</span>
+                    <span class="">{{ item.text }}</span>
                     <ul class="list" v-if="item.children">
                         <li
                             class="list__item"
@@ -57,8 +57,7 @@
             </ul>
             <ul
                 v-else
-                class="services__list"
-                :class="{ '--width-restricted': content.listRight }"
+                class="services__list --width-restricted"
             >
                 <li class="services__subtitle services__list-item" v-if="content.listLeft.title">
                     {{ content.listLeft.title }}
@@ -172,6 +171,9 @@ export default {
     }
     .services__list.--width-restricted {
         max-width: unset;
+        margin-bottom: 0;
+    }
+    .services__list-item {
         margin-bottom: 4vw;
     }
 }

@@ -92,24 +92,15 @@
 
 .list {
     list-style-type: "–   ";
-    margin-left: 2.95vw;
     padding-left: 0;
     margin-top: 0.8vw;
-
-    &.--no-offset {
-        margin-left: 0;
-    }
 }
 
 .list__item {
     margin-bottom: 0.8vw;
-    display: block;
     
-    &::before {
-        content: "–   ";
-        display: inline;
-        padding-right: 0.625vw;
-    }
+    position: relative;
+    left: 2vw;
 }
 
 .circle__border {
@@ -179,16 +170,17 @@
     }
 
     .list {
-        padding-left: 10.5vw;
+        padding-left: 0;
         margin-top: 3.65vw;
         
         &.--no-offset {
-            margin-left: -4vw;
+            margin-left: 0;
         }
     }
     
     .list__item {
         margin-bottom: 3.65vw;
+        left: 6.5vw;
     }
 
     .content-centered {

@@ -25,6 +25,9 @@ body, h1, h2, h3, p {
 }
 body {
     overflow-x: hidden;
+    max-width: 100vw;
+    width: 100vw;
+    resize: none;
 }
 a {
     text-decoration: none;
