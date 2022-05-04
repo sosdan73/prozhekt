@@ -1,27 +1,27 @@
 <template>
     <header class="header app__offset-s">
         <h1 class="header__logo">Прожект</h1>
-        <div class="header__subtitle">Маркетинговое агенство</div>
-        <div class="header__links">
-            <a @click="goTo('services')" class="header__link --underlined">Услуги</a>
-            <a @click="goTo('team')" class="header__link --underlined">Команды</a>
-            <a @click="goTo('cases')" class="header__link --underlined">Кейсы</a>
-            <a @click="goTo('footer')" class="header__link --underlined">Контакты</a>
+        <div class="header__subtitle">
+            <div class="--wordbreak">Маркетинговое агенство</div>
         </div>
+        <NavbarLinks @onScroll="goTo"/>
     </header>
 </template>
 
 <script>
-    export default {
-        methods: {
-            goTo(link) {
-                this.$emit('onScroll', link);
-            }
-        },
-    }
+import NavbarLinks from './NavbarLinks';
+
+export default {
+    components: { NavbarLinks, },
+    methods: {
+        goTo(link) {
+            this.$emit('onScroll', link);
+        }
+    },
+}
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "../../assets/sass/colors.scss";
 @import "../../assets/sass/mixins.scss";
 
@@ -36,6 +36,7 @@
     margin-right: 2.5vw;
     font-family: 'Duck4game';
     font-size: 1.875vw;
+    border-bottom: 0.4vw solid currentColor;
     cursor: default;
 
     &:hover {
@@ -48,29 +49,6 @@
     text-transform: lowercase;
     opacity: 0.5;
     flex-grow: 1;
-}
-
-.header__links {
-    display: flex;
-    align-items: center;
-}
-
-.header__link {
-    font-family: 'Duck4game';
-    font-size: 1.25vw;
-    margin-left: 2.5vw;
-    text-transform: uppercase;
-    cursor: pointer
-}
-
-.header__link.--underlined {
-    @include underline(0.25vw);
-    color: $grey;
-
-    &:hover {
-        color: $dark-blue;
-        @include underline-active(0.25vw);
-    }
 }
 
 $list: $orange, $blue, $purple, $dark-green, $dark-blue, $grey, $yellow, $red;
@@ -93,6 +71,27 @@ $list: $orange, $blue, $purple, $dark-green, $dark-blue, $grey, $yellow, $red;
         color: nth($list, 8);
     } 100% {
         color: nth($list, 1);
+    }
+}
+
+@media (max-width: 660px) {
+    .header {
+        height: 18.9vw;
+    }
+
+    .header__logo {
+        margin-right: 6.4vw;
+        font-size: 4vw;
+        border-block-width: 1vw;
+    }
+
+    .header__subtitle {
+        font-size: 2.4vw;
+        
+        .--wordbreak {
+            width: 20vw;
+            word-break: normal;
+        }
     }
 }
 </style>

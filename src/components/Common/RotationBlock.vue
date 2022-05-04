@@ -17,19 +17,29 @@
 }
 .primary,
 .secondary {
-    transition: transform .2s ease-in-out;
+    transition: transform .4s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 .secondary {
-    position: absolute;
-    transform: rotateX(-90deg) translateY(-70%);
+    transform: rotateX(-90deg) translateY(50%);
 }
 .rotate {
-    width: fit-content;
+    width: 1px;
+    height: 1.36vw;
+    margin-bottom: 0.5vw;
 }
 .rotate:hover .primary {
-    transform: rotateX(90deg) translateY(-70%);
+    transform: rotateX(90deg) translateY(-50%);
 }
 .rotate:hover .secondary {
-    transform: rotateX(0) translateY(-100%);
+    transform: rotateX(0) translateY(0);
+}
+
+@media (max-width: 660px) {
+    .rotate {
+        height: 4.6vw;
+    }
 }
 </style>

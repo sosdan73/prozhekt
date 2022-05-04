@@ -108,4 +108,45 @@ export default {
 
     font-size: 1vw;
 }
+
+@media (max-width: 660px) {
+    .footer {
+        position: relative;
+
+        &.--margin-top {
+            margin-top: 10vw;
+        }
+    }
+    .footer__logo {
+        width: 78.8vw;
+        height: 15.45vw;
+        top: -9.15vw;
+        left: unset;
+        right: 5.73vw;
+    }
+
+    .footer__content {
+        flex-direction: column;
+    }
+
+    .footer__title {
+        font-size: 5.46vw;
+        margin-bottom: 6vw;
+    }
+
+    .footer__socials,
+    .footer__news,
+    .footer__comms {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 12.3vw;
+    }
+
+    .footer__info {
+        width: 76.74vw;
+        margin-top: 17.6vw;
+
+        font-size: 3.2vw;
+    }
+}
 </style>

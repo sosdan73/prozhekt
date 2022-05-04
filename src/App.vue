@@ -23,6 +23,9 @@ export default {
 body, h1, h2, h3, p {
     margin: 0;
 }
+body {
+    overflow-x: hidden;
+}
 a {
     text-decoration: none;
     color: currentColor;
@@ -38,5 +41,11 @@ ul {
     overflow-x: hidden;
     max-width: 100vw;
     width: 100vw;
+}
+
+@media (max-width: 660px) {
+    #app {
+        font-size: 4.5vw;
+    }
 }
 </style>

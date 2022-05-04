@@ -165,4 +165,72 @@ export default {
     padding-top: 0.7vw;
     padding-bottom: 0.3vw;
 }
+@media (max-width:660px) {
+    .modal {
+        z-index: 600;
+        overflow: auto;
+        padding: 5.73vw;
+        width: 100%;
+        box-sizing: border-box;
+        background-color: #fff;
+    }
+    .modal__overlay {
+        display: none;
+    }
+    .form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .form__cross {
+        position: fixed;
+        z-index: 710;
+        top: 0vw;
+        right: 0vw;
+        width: 14vw;
+        height: 14vw;
+        background-color: $white;
+        transition: background-color .3s ease-in-out;
+
+        &:hover {
+            background-color: $lightgrey;
+        }
+    }
+    .form__window {
+        position: relative;
+        z-index: 700;
+        padding: 0;
+        margin-left: 0;
+        margin-right: 0;
+
+        display: grid;
+        gap: 8vw;
+        grid-template-columns: 1fr;
+        
+
+        background-image: none;
+    }
+    .form__header {
+        margin-top: 6vw;
+        width: 100%;
+    }
+    .form__title {
+        font-size: 5.2vw;
+        line-height: 1.3;
+        text-transform: lowercase;
+        margin-bottom: 4vw;
+    }
+    .form__textarea {
+        grid-area: unset;
+    }
+    .form__submit {
+        grid-column-start: unset;
+        grid-column-end: unset;
+
+        display: block;
+        width: 100%;
+        padding-top: 0.7vw;
+        padding-bottom: 0.3vw;
+    }
+}
 </style>

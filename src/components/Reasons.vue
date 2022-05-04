@@ -2,7 +2,7 @@
     <div class="reasons section content-centered">
         <div>
             <div class="reasons__title">Почему нужно действовать?</div>
-            <ul class="list">
+            <ul class="list --no-offset">
                 <li class="list__item">
                     Потребности клиентов никуда не делись;
                 </li>
@@ -38,7 +38,7 @@
             <div class="reasons__title">
                 Что мы делаем для увеличения продаж и продвижения личностей сейчас?
             </div>
-            <ul class="list">
+            <ul class="list --no-offset">
                 <li class="list__item">
                     Адаптируем продукт и личный бренд под актуальную повестку и нишу;
                 </li>
@@ -98,8 +98,8 @@ export default {
     },
     methods: {
         setParallax() {
-            this.leftCoord = (leftK * window.scrollY + b) / 40;
-            this.rightCoord = (rightK * window.scrollY + b) / 35;
+            this.leftCoord = window.innerWidth > 660 ? (leftK * window.scrollY + b) / 40 : (window.scrollY / 6 - 400);
+            this.rightCoord = window.innerWidth > 660 ? (rightK * window.scrollY + b) / 35 : (((-1) * window.scrollY / 5) + 800);
         }
     },
 }
@@ -135,5 +135,41 @@ export default {
 
     width: 32vw;
     height: 32vw;
+}
+
+@media (max-width: 660px) {
+    .reasons {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        
+        & > div:first-child {
+            margin-bottom: 16.3vw;
+        }
+    }
+    .reasons__title {
+        font-size: 7.64vw;
+        font-family: 'Montserrat-Bold';
+        margin-bottom: 6vw;
+    }
+    .reasons__circle-left,
+    .reasons__circle-right {
+        z-index: -1;
+        opacity: 0.5;
+    }
+    .reasons__circle-left {
+        top: 0vw;
+        left: -160vw;
+
+        width: 190vw;
+        height: 190vw;
+    }
+    .reasons__circle-right {
+        top: 162vw;
+        right: -80vw;
+
+        width: 105.6vw;
+        height: 105.6vw;
+    }
 }
 </style>

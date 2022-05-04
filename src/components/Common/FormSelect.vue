@@ -59,5 +59,29 @@ $pb: 1.1vw;
     border: none;
     resize: none;
     box-sizing: border-box;
+    font-family: 'PT Sans';
+    font-weight: 400;
+}
+@media (max-width: 660px) {
+    $px: 4vw;
+    $pt: 3vw;
+    $pb: 3vw;
+
+    .select-container {
+        padding: $pt $px $pb;
+    }
+    .label {
+        left: $px;
+        top: $pt;
+        z-index: 610;
+    }
+    .focused > .label {
+        transform: translateY(calc((-1) * ($pt + 4.5vw))) translateX(calc((-1) * $px));
+        font-size: 3.35vw;
+    }
+    .select {
+        font-size: 4.5vw;
+        z-index: 620;
+    }
 }
 </style>

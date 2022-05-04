@@ -1,6 +1,9 @@
 <template>
-    <div ref="self" class="services section app__offset-l bg-pink">
-        <div class="services__header">
+    <div
+        class="services section app__offset-l bg-pink"
+        ref="self"
+    >
+        <div class="services__header" ref="header">
             <h2 class="section__subtitle">Услуги:</h2>
             <button
                 class="section__subtitle services__button"
@@ -12,17 +15,18 @@
                 {{ item.title }}
             </button>
         </div>
-        <div ref="content">
-            <ServicesContent :content="content" />
-        </div>
-        <Arrow class="services__arrow" @click="onTabChange"/>
         <div class="services__tabs--transition">
             <ServicesTabs
                 :data="tabs"
                 ref="tabs"
                 @tabChange="onTabChange"
+                @nextTab="onTabChange"
             />
         </div>
+        <div ref="content">
+            <ServicesContent :content="content"/>
+        </div>
+        <Arrow class="services__arrow" @click="onTabChange"/>
     </div>
 </template>
 
@@ -42,6 +46,9 @@ export default {
             sliding: false,
         }
     },
+    mounted() {
+        this.calculateHeight();
+    },
     computed: {
         tabs() {
             return this.data.filter(item => item.isActive)[0].tabs;
@@ -51,6 +58,14 @@ export default {
         },
     },
     methods: {
+        calculateHeight() {
+            if (window.innerWidth > 660) {
+                const header = Number(String(window.getComputedStyle(this.$refs.header).height).replace(/px$/, ''));
+                // const tabs = Number(String(window.getComputedStyle(this.$refs.tabs.$el).height).replace(/px$/, ''));
+                const content = Number(String(window.getComputedStyle(this.$refs.content).height).replace(/px$/, ''));
+                this.$refs.self.style.height = header + content + 'px';
+            }
+        },
         chooseService(service) {
             if (!service.isActive && !this.sliding) {
                 this.sliding = true;
@@ -68,6 +83,9 @@ export default {
                         item.isActive = !item.isActive;
                     });
                 }, 200);
+                setTimeout(() => {
+                    this.calculateHeight();
+                }, 205);
 
                 setTimeout(() => {
                     this.$refs.content.classList.remove('services__after-slide');
@@ -97,6 +115,9 @@ export default {
                 }
                 activeServices.tabs[newIndex].isActive = true;
             }, 200);
+            setTimeout(() => {
+                this.calculateHeight();
+            }, 205);
 
             setTimeout(() => {
                 this.$refs.content.classList.remove('services__after-slide');
@@ -110,6 +131,9 @@ export default {
 @import "../../assets/sass/colors.scss";
 @import  "../../assets/sass/mixins.scss";
 
+.services {
+    transition: height .2s ease-in-out;
+}
 .services__header {
     display: flex;
     align-items: center;
@@ -165,6 +189,39 @@ export default {
     } 100% {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+@media (max-width:660px) {
+    .services__header {
+        flex-direction: column;
+        align-items: unset;
+    }
+    .section__subtitle {
+        margin-right: 0;
+        margin-bottom: 4vw;
+    }
+    .services__button {
+        margin-bottom: 2vw;
+        width: max-content;
+        // TODO: rework one line buttons
+        color: #878787;
+
+        @include underline(1vw);
+        padding-bottom: 1vw;
+
+        &.--active {
+            color: $dark-blue;
+            @include underline-active(1vw);
+        }
+    }
+    .services__before-slide {
+        animation: slide-before .2s ease-in-out;
+    }
+    .services__after-slide {
+        animation: slide-after .2s ease-in-out;
+    }
+    .services__arrow {
+        display: none;
     }
 }
 </style>

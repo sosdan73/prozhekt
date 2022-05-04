@@ -144,8 +144,8 @@ export default {
     },
     methods: {
         setParallax() {
-            this.leftCoord = (leftK * window.scrollY + b) / 25 - 1200;
-            this.rightCoord = (rightK * window.scrollY + b) / 35;
+            this.leftCoord = window.innerWidth > 660 ? (leftK * window.scrollY + b) / 25 - 1200 : (-500 + window.scrollY / 7);
+            this.rightCoord = window.innerWidth > 660 ? (rightK * window.scrollY + b) / 35 : (500 + window.scrollY / (-8));
         }
     },
 }
@@ -211,5 +211,69 @@ $size-info: calc(0.6 * 22vw);
 
     width: 25vw;
     height: 25vw;
+}
+
+@media (max-width: 660px) {
+    .team {
+        overflow: hidden;
+    }
+
+    .team__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: unset;
+        margin-right: 0;
+        margin-bottom: -22.5vw;
+    }
+
+    .team__card {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 22.5vw;
+    }
+
+    $size-info: 50vw;
+
+    .card__info {
+        width: $size-info;
+    }
+
+    .card__image {
+        width: $size-info;
+        height: $size-info;
+        background-color: $grey;
+        margin-bottom: 7vw;
+    }
+
+    .card__title {
+        font-size: 7.64vw;
+        margin-bottom: 5.2vw;
+    }
+
+    .card__row:not(:last-child) {
+        margin-bottom: 4vw;
+    }
+
+    .team__circle-left {
+        opacity: 0.5;
+        z-index: -1;
+        position: absolute;
+        top: 230vw;
+        left: unset;
+        right: -340vw;
+
+        width: 372vw;
+        height: 372vw;
+    }
+
+    .team__circle-right {
+        opacity: 0.5;
+        z-index: -1;
+        top: 52vw;
+        right: -50vw;
+
+        width: 83vw;
+        height: 83vw;
+    }
 }
 </style>

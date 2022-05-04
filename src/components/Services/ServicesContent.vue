@@ -1,32 +1,40 @@
 <template>
     <div class="services__content">
-        <div class="services__column">
-            <h2 class="services__title">
-                <span
-                    v-if="content.title.xl"
-                    class="--xl"
-                >
-                    {{ content.title.xl }}
-                </span>
-                <span
-                    v-if="content.title.l"
-                    class="--l"
-                >
-                    {{ content.title.l }}
-                </span>
-                <span v-if="content.title.m">
-                    {{ content.title.m }}
-                </span>
-                <span
-                    v-if="content.title.s"
-                    class="--s"
-                >
-                    {{ content.title.s }}
-                </span>
-            </h2>
-            <div class="services__description">
-                <p>{{ content.description }}</p>
-            </div>
+        <h2 class="services__title" v-if="isDesktop">
+            <span
+                v-if="content.title.xl"
+                class="--xl"
+            >
+                {{ content.title.xl }}
+            </span>
+            <span
+                v-if="content.title.l"
+                class="--l"
+            >
+                {{ content.title.l }}
+            </span>
+            <span v-if="content.title.m">
+                {{ content.title.m }}
+            </span>
+            <span
+                v-if="content.title.s"
+                class="--s"
+            >
+                {{ content.title.s }}
+            </span>
+        </h2>
+        <h2 class="services__title" v-else>
+            <span
+                class="d-block"
+                :style="{fontSize: size}"
+                :key="title"
+                v-for="(size, title) in content.titleMobile"
+            >
+                {{ title }}
+            </span>
+        </h2>
+        <div class="services__description">
+            <p>{{ content.description }}</p>
         </div>
         <div class="services__row services__lists">
             <ul class="list" v-if="content.listLeft.isNested">
@@ -85,22 +93,23 @@
 <script>
 export default {
     props: ['content'],
+    computed: {
+        isDesktop() {
+            return window.innerWidth > 660;
+        }
+    },
 }
 </script>
 
 <style lang="scss">
-.services__column {
-    display: flex;
-    flex-direction: column;
-    height: 35vw;
-}
 .services__row:not(:last-child) {
     margin-bottom: 3.85vw;
 }
 .services__title {
-    padding-bottom: 1vw;
+    padding-bottom: 4vw;
     display: flex;
     flex-direction: column;
+    // height: 22vw;
 
     font-family: "Montserrat-Extrabold";
     font-size: 4.2vw;
@@ -121,14 +130,11 @@ export default {
 }
 .services__description {
     width: 50vw;
+    margin-bottom: 3.85vw;
     line-height: 1.3;
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
 }
 .services__lists {
     display: flex;
-    height: 27.5vw;
     
     & > .list,
     & > .services__list {
@@ -147,5 +153,26 @@ export default {
 }
 .services__subtitle {
     font-family: "PTSans-Bold";
+}
+
+@media (max-width: 660px) {
+    .services__title {
+        margin-bottom: 4vw;
+        margin-top: 65vw;
+    }
+    .services__description {
+        width: 100%;
+        height: unset;
+        margin-bottom: 8vw;
+    }
+    .services__lists {
+        height: unset;
+        padding-bottom: 5vw;
+        flex-direction: column;
+    }
+    .services__list.--width-restricted {
+        max-width: unset;
+        margin-bottom: 4vw;
+    }
 }
 </style>

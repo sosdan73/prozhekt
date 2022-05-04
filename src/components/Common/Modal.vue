@@ -30,7 +30,7 @@
                     v-for="item in content.info"
                 >
                     <h3 class="modal__subtitle">{{ item.title }}</h3>
-                    <ul class="list">
+                    <ul class="list --no-offset">
                         <li
                             class="list__item"
                             :key="listItem.text ? listItem.text : listItem"
@@ -130,6 +130,7 @@ export default {
 
     background-color: $lightgrey;
     cursor: pointer;
+    transition: background-color .3s ease-in-out;
 }
 .cross__left-line,
 .cross__right-line {
@@ -173,5 +174,64 @@ export default {
 }
 .modal__company-name {
     padding: 1vw 0;
+}
+
+@media (max-width: 660px) {
+    .modal__overlay {
+        display: none;
+    }
+    .modal {
+        z-index: 100;
+        overflow: auto;
+        padding: 5.73vw;
+        width: 100%;
+        box-sizing: border-box;
+        background-color: #fff;
+    }
+    .modal__image {
+        position: static;
+        width: 100%;
+        height: 65.625vw;
+        background-color: $lightgrey;
+    }
+    .modal__cross {
+        top: 0vw;
+        right: 0vw;
+        width: 14vw;
+        height: 14vw;
+        background-color: $white;
+
+        &:hover {
+            background-color: $lightgrey;
+        }
+    }
+    .cross__left-line,
+    .cross__right-line {
+        width: 9vw;
+        height: 1.1vw;
+        background-color: $dark;
+        top: 43%;
+        left: 22%;
+    }
+    .modal__main {
+        margin: 0;
+    }
+    .modal__content {
+        padding: 5.73vw 0;
+        padding-left: 0;
+    }
+    .modal__row:not(:last-child) {
+        margin-bottom: 5.73vw;
+    }
+    .modal__title {
+        font-size: 5.9vw;
+        margin-bottom: 2vw;
+    }
+    .modal__subtitle {
+        font-size: 5vw;
+    }
+    .modal__company-name {
+        // padding: 1vw 0;
+    }
 }
 </style>

@@ -1,10 +1,15 @@
 <template>
-    <div class="input-container" ref="input">
+    <div
+        class="input-container"
+        ref="input"
+        @click="focusInput"
+    >
         <label class="label">{{ placeholder }}</label>
         <input
             class="input"
             type="text"
             v-model="data"
+            ref="inputField"
             @focus="onFocus"
             @blur="onBlur"
         >
@@ -43,6 +48,10 @@
                     this.$refs.input.classList.remove('focused');
                 }
             },
+            focusInput() {
+                // console.log(this.$refs.inputField.click);
+                this.$refs.inputField.focus();
+            }
         },
     }
 </script>
@@ -60,6 +69,7 @@ $pb: 1.2vw;
     border: 1px solid $grey;
     box-sizing: border-box;
     padding: $pt $px $pb;
+    cursor: text;
 }
 .label {
     position: absolute;
@@ -83,5 +93,29 @@ $pb: 1.2vw;
     border: none;
     border-radius: 0;
     box-sizing: border-box;
+    font-family: 'PT Sans';
+    font-weight: 400;
+}
+@media (max-width: 660px) {
+    $px: 4vw;
+    $pt: 3vw;
+    $pb: 3vw;
+
+    .input-container {
+        padding: $pt $px $pb;
+    }
+    .label {
+        left: $px;
+        top: $pt;
+        z-index: 610;
+    }
+    .focused > .label {
+        transform: translateY(calc((-1) * ($pt + 4.5vw))) translateX(calc((-1) * $px));
+        font-size: 3.35vw;
+    }
+    .input {
+        font-size: 4.5vw;
+        z-index: 620;
+    }
 }
 </style>

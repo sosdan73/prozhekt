@@ -3,7 +3,13 @@
         <Arrow class="welcome__arrow" />
         <div class="welcome__content">
             <div class="--row">
-                <h2 class="welcome__title"><span class="bold">Интеллектуальный маркетинг</span> для бизнеса и личного бренда</h2>
+                <h2 class="welcome__title">
+                    <span class="--bold">Интеллектуальный маркетинг </span>
+                    <span class="--regular">для бизнеса </span>
+                    <span class="--regular">
+                        и личного бренда
+                    </span>
+                </h2>
             </div>
             <div class="--row">
                 <p class="welcome__description">
@@ -75,9 +81,9 @@ export default {
 }
 .welcome__title {
     font-size: 2.7vw;
-    font-weight: 400;
+    font-family: 'Montserrat';
 
-    .bold {
+    .--bold {
         font-family: 'Montserrat-Bold';
     }
 }
@@ -86,7 +92,10 @@ export default {
 }
 .welcome__buttons {
     display: flex;
-    gap: 1.9vw;
+
+    & > *:first-child {
+        margin-right: 2vw;
+    }
 }
 .welcome__circles {
     width: 29vw;
@@ -125,6 +134,60 @@ $size: 8.65vw;
     } to {
         opacity: 0;
         transform: scale(2);
+    }
+}
+
+@media (max-width: 660px) {
+    .welcome {
+        padding: 14vw 5.73vw;
+        display: block;
+        margin-right: 0;
+        
+        & > div {
+            margin-right: 0;
+        }
+    }
+    .welcome__arrow {
+        display: none;
+    }
+    .welcome__content {
+        width: auto;
+
+        .--row {
+            margin-bottom: 13vw;
+        }
+    }
+    .welcome__title {
+        font-size: 7.8vw;
+        
+        .--regular {
+            display: block;
+
+            &:nth-child(2) {
+                width: 60vw;
+            }
+        }
+        .--bold {
+            font-family: 'Montserrat-Bold';
+        }
+    }
+    .welcome__description {
+        font-size: 5.6vw;
+    }
+    .welcome__buttons {
+        flex-direction: column;
+
+        & > *:nth-child(1) {
+            margin-right: 0;
+            margin-bottom: 4vw;
+        }
+
+        & > *:nth-child(2) {
+            width: 100%;
+        }
+    }
+    .welcome__circles {
+        display: none;
     }
 }
 </style>

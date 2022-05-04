@@ -1,15 +1,15 @@
 <template>
-    <div class="addvertisment section dark">
-        <div class="addvertisment__image" :style="transformImage"></div>
-        <div class="addvertisment__content content-centered">
-            <div class="addvertisment__row">
+    <div class="ads section dark">
+        <div class="ads__image" :style="transformImage"></div>
+        <div class="ads__content content-centered">
+            <div class="ads__row">
                 <p>Пока вы слышите, что сейчас не время масштабироваться, ведь: закрыли инстаграм, отключили таргет, у клиентов нет денег, подписчики читают только новости, мы растим бизнесы клиентов и делаем им медийность!</p>
             </div>
-            <div class="addvertisment__row">
-                <div class="advertisment__subtitle">
+            <div class="ads__row">
+                <div class="ads__subtitle">
                     Пока вы:
                 </div>
-                <ul class="list">
+                <ul class="list --no-offset">
                     <li class="list__item">
                         Cнизили расходы на все, что можно было<br>(в первую очередь на маркетинг),
                     </li>
@@ -24,19 +24,21 @@
                     </li>
                 </ul>
             </div>
-            <div class="addvertisment__row">
+            <div class="ads__row">
                 <div
-                    class="addvertisment__lead"
+                    class="ads__lead"
                     :style="transformText"
                 >
-                    Другие растут<br>и привлекают клиентов
+                    <span>Другие растут </span>
+                    <br>
+                    <span class="--small">и привлекают клиентов</span>
                 </div>
             </div>
-            <div class="addvertisment__row">
-                <div class="advertisment__subtitle">
+            <div class="ads__row">
+                <div class="ads__subtitle">
                     Помните, стратегия «отсидеться»<br>не подойдет:
                 </div>
-                <ul class="list">
+                <ul class="list --no-offset">
                     <li class="list__item">
                         Оставшиеся деньги дешевеют каждый день,
                     </li>
@@ -64,7 +66,7 @@ export default {
     },
     computed: {
         transformText() {
-            return { transform: `translateX(${this.textCoordinate}px)` }
+            return { transform: window.innerWidth > 660 ? `translateX(${this.textCoordinate}px)` : `translateX(${this.textCoordinate}vw)` }
         },
         transformImage() {
             return { transform: `translateX(${this.imageCoordinate}px)` }
@@ -72,25 +74,25 @@ export default {
     },
     methods: {
         setParallax() {
-            this.textCoordinate = (textK * window.scrollY + textB) / 10;
-            this.imageCoordinate = (imageK * window.scrollY + imageB) / 750;
+            this.textCoordinate = window.innerWidth > 660 ? (textK * window.scrollY + textB) / 10 : ((window.scrollY / 20 - 20) * 100 / 408);
+            this.imageCoordinate = window.innerWidth > 660 ? (imageK * window.scrollY + imageB) / 750 : (100 + window.scrollY / (-15));
         }
     },
 }
 </script>
 
 <style lang="scss" scoped>
-.addvertisment {
+.ads {
     background-image: url(../assets/images/architecture.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position-x: right;
 }
-.addvertisment__row {
+.ads__row {
     position: relative;
     margin-bottom: 3.6vw;
 }
-.addvertisment__image {
+.ads__image {
     position: absolute;
     left: 0;
     width: 30vw;
@@ -104,16 +106,16 @@ export default {
     transform: translateX(0);
 }
 
-.addvertisment__content {
+.ads__content {
     font-size: 1.35vw;
 }
 
-.addvertisment__subtitle {
+.ads__subtitle {
     font-size: 1.77vw;
     margin-bottom: 1.35vw;
 }
 
-.addvertisment__lead {
+.ads__lead {
     position: relative;
     right: 15vw;
     width: 80vw;
@@ -121,5 +123,55 @@ export default {
     font-size: 5vw;
     font-family: 'Montserrat-Extrabold';
     text-transform: uppercase;
+}
+
+@media (max-width: 660px) {
+    .ads {
+        background-image: none;
+    }
+    .ads__row {
+        position: relative;
+        margin-bottom: 10.4vw;
+    }
+    .ads__image {
+        position: absolute;
+        right: 0;
+        left: unset;
+        top: 125vw;
+        width: 68.4vw;
+        height: 104vw;
+        
+        background-image: url(../assets/images/lighthouse.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        
+        opacity: 0.8;
+        transform: translateX(0);
+    }
+
+    .ads__content {
+        font-size: 4.5vw;
+    }
+
+    .ads__subtitle {
+        font-size: 5.9vw;
+        margin-bottom: 4vw;
+    }
+
+    .ads__lead {
+        right: unset;
+        width: 78.125vw;
+        padding-bottom: 40vw;
+        padding-top: 7vw;
+
+        font-size: unset;
+        
+        & > span:not(.--small) {
+            font-size: 13.72vw;
+        }
+        & > .--small {
+            font-size: 8.65vw;
+        }
+    }
 }
 </style>

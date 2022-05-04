@@ -8,11 +8,9 @@
                 </h2>
             </div>
             <div class="instructions__row">
-                <p>Сейчас как никогда актуален выход на зарубежный рынок, но одной из проблем является прием оплат из-за введенных ограничений всех платежных систем.</p>
-                <br>
-                <p>Как это обойти, какие еще сложности могут возникнуть при работе с Европой, как увеличить клиентопоток в России и многое другое мы рассказываем в закрытом телеграм канале.</p>
-                <br>
-                <p>Чтобы узнавать всю актуальную информацию и скачать чек-лист по приему оплат из-за границы, нажимайте на кнопку и подписывайтесь.</p>
+                <p class="instructions__paragraph">Сейчас как никогда актуален выход на зарубежный рынок, но одной из проблем является прием оплат из-за введенных ограничений всех платежных систем.</p>
+                <p class="instructions__paragraph">Как это обойти, какие еще сложности могут возникнуть при работе с Европой, как увеличить клиентопоток в России и многое другое мы рассказываем в закрытом телеграм канале.</p>
+                <p class="instructions__paragraph">Чтобы узнавать всю актуальную информацию и скачать чек-лист по приему оплат из-за границы, нажимайте на кнопку и подписывайтесь.</p>
             </div>
             <div class="instructions__row">
                 <a href="tg://resolve?domain=prozhekt">
@@ -55,5 +53,36 @@
 .instructions__title {
     font-size: 2.86vw;
     font-family: "Montserrat-Bold";
+}
+
+@media (max-width: 660px) {
+    .instructions {
+        flex-direction: column;
+
+        & > div {
+            width: 100%;
+        }
+    }
+
+    .instructions__image {
+        margin-right: 0;
+        height: 110vw;
+    }
+
+    .instructions__row:not(:last-child) {
+        margin-bottom: 4vw;
+    }
+    .instructions__row:last-child {
+        margin-top: 9vw;
+    }
+
+    .instructions__title {
+        font-size: 9.55vw;
+        padding: 9vw 0 5vw;
+    }
+
+    .instructions__paragraph {
+        margin-bottom: 3vw;
+    }
 }
 </style>
