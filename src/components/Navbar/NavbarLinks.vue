@@ -14,7 +14,7 @@
             :class="{'--active': linksShown}"
         >
             <a @click="goTo('services')" class="header__link --underlined">Услуги</a>
-            <!-- <a @click="goTo('team')" class="header__link --underlined">Команда</a> -->
+            <a @click="goTo('team')" class="header__link --underlined">Команда</a>
             <a @click="goTo('cases')" class="header__link --underlined">Кейсы</a>
             <a @click="goTo('footer')" class="header__link --underlined">Контакты</a>
         </div>
@@ -22,34 +22,35 @@
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                linksShown: false,
-                clickable: true,
+export default {
+    name: 'NavbarLinks',
+    data() {
+        return {
+            linksShown: false,
+            clickable: true,
+        }
+    },
+    methods: {
+        toggleMenu() {
+            if (this.clickable) {
+                this.clickable = false;
+                setTimeout(() => {
+                    this.clickable = true;
+                }, 300);
+                this.linksShown = !this.linksShown;
             }
         },
-        methods: {
-            toggleMenu() {
-                if (this.clickable) {
-                    this.clickable = false;
-                    setTimeout(() => {
-                        this.clickable = true;
-                    }, 300);
-                   this.linksShown = !this.linksShown;
-                }
-            },
-            goTo(link) {
-                this.linksShown = false;
-                this.$emit('onScroll', link);
-            },
+        goTo(link) {
+            this.linksShown = false;
+            this.$emit('onScroll', link);
         },
-        computed: {
-            showLinks() {
-                return this.linksShown || window.innerWidth > 660;
-            }
-        },
-    }
+    },
+    computed: {
+        showLinks() {
+            return this.linksShown || window.innerWidth > 660;
+        }
+    },
+}
 </script>
 
 <style lang="scss" scoped>

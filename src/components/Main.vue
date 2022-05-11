@@ -5,7 +5,7 @@
         <Addvertisment ref="add" />
         <Reasons ref="reasons" />
         <Services ref="services"/>
-        <!-- <Team ref="team" /> -->
+        <Team ref="team" />
         <Cases ref="cases" />
         <Section/>
         <Footer ref="footer" />
@@ -40,7 +40,7 @@ export default {
         window.onscroll = () => {
             this.$refs.add.setParallax();
             this.$refs.reasons.setParallax();
-            // this.$refs.team.setParallax();
+            this.$refs.team.setParallax();
         }
     },
     methods: {

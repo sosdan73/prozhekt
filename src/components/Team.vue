@@ -4,7 +4,29 @@
             Команда
         </h2>
         <div class="team__content">
-            <div class="team__card">
+            <div
+                class="team__card"
+                :key="member.name"
+                v-for="member in team"
+            >
+                <div class="card__info">
+                    <img class="card__image" src="" alt>
+                    <h3 class="card__title">{{ member.name }}</h3>
+                </div>
+                <div class="card__row text-grey">
+                    {{ member.status }}
+                </div>
+                <div class="card__content">
+                    <div
+                        class="card__row"
+                        :key="index"
+                        v-for="(desc, index) in member.descriptions"
+                    >
+                        {{ desc }}
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="team__card">
                 <div class="card__info">
                     <img src="" alt class="card__image">
                     <h3 class="card__title">Василий Земсков</h3>
@@ -23,87 +45,7 @@
                         Следит за работой менеджеров отдела по работе с клиентами.
                     </div>
                 </div>
-            </div>
-            <div class="team__card">
-                <div class="card__info">
-                    <img src="" alt class="card__image">
-                    <h3 class="card__title">Василий Земсков</h3>
-                </div>
-                <div class="card__row text-grey">
-                    Директор по работе с клиентами
-                </div>
-                <div class="card__content">
-                    <div class="card__row">
-                        Поможет вам выбрать подходящее решение.
-                    </div>
-                    <div class="card__row">
-                        Всегда держит вас в курсе происходящего. 
-                    </div>
-                    <div class="card__row">
-                        Следит за работой менеджеров отдела по работе с клиентами.
-                    </div>
-                </div>
-            </div>
-            <div class="team__card">
-                <div class="card__info">
-                    <img src="" alt class="card__image">
-                    <h3 class="card__title">Василий Земсков</h3>
-                </div>
-                <div class="card__row text-grey">
-                    Директор по работе с клиентами
-                </div>
-                <div class="card__content">
-                    <div class="card__row">
-                        Поможет вам выбрать подходящее решение.
-                    </div>
-                    <div class="card__row">
-                        Всегда держит вас в курсе происходящего. 
-                    </div>
-                    <div class="card__row">
-                        Следит за работой менеджеров отдела по работе с клиентами.
-                    </div>
-                </div>
-            </div>
-            <div class="team__card">
-                <div class="card__info">
-                    <img src="" alt class="card__image">
-                    <h3 class="card__title">Василий Земсков</h3>
-                </div>
-                <div class="card__row text-grey">
-                    Директор по работе с клиентами
-                </div>
-                <div class="card__content">
-                    <div class="card__row">
-                        Поможет вам выбрать подходящее решение.
-                    </div>
-                    <div class="card__row">
-                        Всегда держит вас в курсе происходящего. 
-                    </div>
-                    <div class="card__row">
-                        Следит за работой менеджеров отдела по работе с клиентами.
-                    </div>
-                </div>
-            </div>
-            <div class="team__card">
-                <div class="card__info">
-                    <img src="" alt class="card__image">
-                    <h3 class="card__title">Василий Земсков</h3>
-                </div>
-                <div class="card__row text-grey">
-                    Директор по работе с клиентами
-                </div>
-                <div class="card__content">
-                    <div class="card__row">
-                        Поможет вам выбрать подходящее решение.
-                    </div>
-                    <div class="card__row">
-                        Всегда держит вас в курсе происходящего. 
-                    </div>
-                    <div class="card__row">
-                        Следит за работой менеджеров отдела по работе с клиентами.
-                    </div>
-                </div>
-            </div>
+            </div> -->
         </div>
         <div class="team__circle-left" :style="transformLeft">
             <div class="circle__border">
@@ -120,6 +62,7 @@
 
 <script>
 import { GoTo } from '@/mixins/GoTo.js';
+import { team } from '../data';
 
 // Scroll height is ~4350
 const b = 4400;
@@ -131,6 +74,7 @@ export default {
         return {
             leftCoord: 0,
             rightCoord: 0,
+            team,
         }
     },
     mixins: [GoTo],
