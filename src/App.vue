@@ -13,7 +13,16 @@ import ModalForm from "./components/Common/ModalForm.vue";
 
 export default {
     name: 'App',
-    components: { Main, Modal, ModalForm, }
+    components: { Main, Modal, ModalForm, },
+    created() {
+        document.addEventListener("DOMContentLoaded", function(event) {
+            document.querySelectorAll('img').forEach( function(img) {
+                img.onerror = () => {
+                    img.classList.add('--error');
+                };
+            })
+        });
+    }
 }
 </script>
 
