@@ -393,6 +393,7 @@ export const casesBusiness = [
         title: 'Солд-аут в первый месяц работы',
         companyName: 'Панавто Mercedes Benz.',
         subtitle: 'продажа автомобилей.',
+        image: 'panavto.jpg',
         info: [
             {
                 title: 'Цель:',
@@ -438,6 +439,7 @@ export const casesBusiness = [
         title: 'Благотворительный онлайн проект и диджитализация журнала за 1 месяц',
         companyName: 'Журнал The World Magazine.',
         subtitle: 'Интеллектуальный журнал.',
+        image: 'theworld.jpg',
         info: [
             {
                 title: 'Цель:',
@@ -492,6 +494,7 @@ export const casesBusiness = [
         title: 'Выход продукции в сетевые магазины: Азбука Вкуса и ВкусВилл',
         companyName: 'Сырки AMM!',
         subtitle: 'Сфера деятельности: Производство Веган-десертов, ретейл',
+        image: 'amm.jpg',
         info: [
             {
                 title: 'Цель:',
