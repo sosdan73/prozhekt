@@ -106,7 +106,6 @@ export default {
     
     opacity: 0.8;
     transform: translateX(0);
-    transition: transform .05s linear;
 }
 
 .ads__content {
@@ -126,8 +125,6 @@ export default {
     font-size: 5vw;
     font-family: 'Montserrat-Extrabold';
     text-transform: uppercase;
-
-    transition: transform .05s linear;
 }
 
 @media (max-width: 660px) {
@@ -152,6 +149,8 @@ export default {
         
         opacity: 0.8;
         transform: translateX(0);
+
+        transition: transform .05s linear;
     }
 
     .ads__content {
@@ -170,6 +169,8 @@ export default {
         padding-top: 7vw;
 
         font-size: unset;
+
+        transition: transform .05s linear;
         
         & > span:not(.--small) {
             font-size: 13.72vw;

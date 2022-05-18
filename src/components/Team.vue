@@ -146,7 +146,6 @@ $size-info: calc(0.6 * 22vw);
 
     width: 111vw;
     height: 111vw;
-    transition: transform .05s linear;
 }
 
 .team__circle-right {
@@ -156,7 +155,6 @@ $size-info: calc(0.6 * 22vw);
 
     width: 25vw;
     height: 25vw;
-    transition: transform .05s linear;
 }
 
 @media (max-width: 660px) {
@@ -210,6 +208,8 @@ $size-info: calc(0.6 * 22vw);
 
         width: 372vw;
         height: 372vw;
+
+        transition: transform .05s linear;
     }
 
     .team__circle-right {
@@ -220,6 +220,8 @@ $size-info: calc(0.6 * 22vw);
 
         width: 83vw;
         height: 83vw;
+
+        transition: transform .05s linear;
     }
 }
 </style>

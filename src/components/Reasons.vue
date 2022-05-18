@@ -156,6 +156,8 @@ export default {
     .reasons__circle-right {
         z-index: -1;
         opacity: 0.5;
+
+        transition: transform .05s linear;
     }
     .reasons__circle-left {
         top: 0vw;
