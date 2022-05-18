@@ -1,10 +1,14 @@
 <template>
-    <div class="modal" v-if="visible">
+    <div
+        class="modal"
+        v-if="visible"
+        @keydown.esc="hide"
+    >
         <div class="modal__overlay" @click="hide"></div>
         <div
             class="modal__image"
         >
-            <img :src="`/images/${'lighthouse'}.png`" alt>
+            <img :src="`/images/${content.image ? content.image : 'lighthouse.png'}.png`" alt>
         </div>
         <div class="modal__cross cross" @click="hide">
             <span class="cross__left-line"></span>
@@ -98,8 +102,10 @@ export default {
     left: 0;
 }
 .modal {
-    z-index: 100;
+    z-index: 200;
     overflow: auto;
+
+    overflow-x: hidden;
 }
 .modal__overlay {
     z-index: 110;

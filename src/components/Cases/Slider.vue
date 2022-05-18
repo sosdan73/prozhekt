@@ -156,6 +156,8 @@ export default {
     transition: color .2s ease-in-out;
 
     cursor: pointer;
+    position: relative;
+    z-index: 110;
 
     &:hover {
         color: #444;
@@ -205,6 +207,7 @@ export default {
     left: 0;
     width: 100%;
     box-sizing: border-box;
+    z-index: 100;
 }
 .slider__arrow {
     width: 4.2vw;

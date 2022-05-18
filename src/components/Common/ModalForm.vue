@@ -1,5 +1,9 @@
 <template>
-    <div class="modal form" v-if="visible">
+    <div
+        class="modal form"
+        v-if="visible"
+        @keydown.esc="hide"
+    >
         <div class="modal__overlay" @click="hide"></div>
         <div class="form__window">
             <div class="form__cross cross" @click="hide">
