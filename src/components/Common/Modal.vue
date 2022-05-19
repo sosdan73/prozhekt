@@ -8,7 +8,7 @@
         <div
             class="modal__image"
         >
-            <img :src="`/images/${content.image ? content.image : 'lighthouse.png'}.png`" alt>
+            <img :src="`/images/${content.image ? content.image : 'lighthouse.png'}`" alt>
         </div>
         <div class="modal__cross cross" @click="hide">
             <span class="cross__left-line"></span>
