@@ -265,6 +265,7 @@ export default {
         left: 0.35vw;
         width: 100%;
         box-sizing: border-box;
+        z-index: 200;
     }
     .slider__arrow {
         width: 12.85vw;
