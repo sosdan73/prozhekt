@@ -164,7 +164,8 @@ export default {
 }
 .modal__content {
     padding: 4vw;
-    padding-left: 8.5vw;
+    padding-left: 6.5vw;
+    padding-right: 5vw;
     background-color: #fff;
 }
 .modal__row:not(:last-child) {
@@ -187,8 +188,9 @@ export default {
         display: none;
     }
     .modal {
-        z-index: 100;
+        z-index: 200;
         overflow: auto;
+        overflow-x: hidden;
         padding: 5.73vw;
         width: 100%;
         box-sizing: border-box;

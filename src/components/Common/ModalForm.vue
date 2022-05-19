@@ -107,10 +107,6 @@ export default {
     top: 0;
     left: 0;
 }
-.modal {
-    z-index: 100;
-    overflow: auto;
-}
 .modal__overlay {
     z-index: 110;
     background-color: rgba($color: #000000, $alpha: 0.3);
@@ -173,6 +169,7 @@ export default {
     .modal {
         z-index: 600;
         overflow: auto;
+        overflow-x: hidden;
         padding: 5.73vw;
         width: 100%;
         box-sizing: border-box;
