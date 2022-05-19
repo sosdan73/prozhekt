@@ -2,9 +2,11 @@
     <div
         class="modal"
         v-if="visible"
-        @keydown.esc="hide"
     >
-        <div class="modal__overlay" @click="hide"></div>
+        <div
+            class="modal__overlay"
+            @click="hide"
+        ></div>
         <div
             class="modal__image"
         >
@@ -63,8 +65,10 @@
 
 <script>
 import Modal from '../../plugins/modal';
+import { Escapable } from '@/mixins/Escape';
 
 export default {
+    mixins: [Escapable],
     data() {
         return {
             visible: false,
@@ -86,6 +90,9 @@ export default {
             document.body.style = '';
             this.visible = false;
         },
+        log() {
+            console.log('works')
+        }
     },
 }
 </script>

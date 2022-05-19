@@ -50,6 +50,7 @@ import ModalForm from '../../plugins/modalForm';
 import FormInput from './FormInput.vue';
 import FormTextarea from './FormTextarea.vue';
 import FormSelect from './FormSelect.vue';
+import { Escapable } from '@/mixins/Escape';
 
 const voidData = {
     name: '',
@@ -61,6 +62,7 @@ const voidData = {
 
 export default {
     name: 'ModalForm',
+    mixins: [Escapable],
     components: { FormInput, FormTextarea, FormSelect, },
     data() {
         return {
