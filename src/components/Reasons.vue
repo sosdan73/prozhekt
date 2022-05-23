@@ -2,13 +2,13 @@
     <div class="reasons section content-centered">
         <div>
             <div class="reasons__title">Почему нужно действовать?</div>
-            <ul class="list --no-offset">
+            <ul class="list --no-offset" role="list">
                 <li class="list__item">
                     Потребности клиентов никуда не делись;
                 </li>
                 <li class="list__item">
                     Большинство ваших конкурентов сейчас:
-                    <ul class="list">
+                    <ul class="list" role="list">
                         <li class="list__item">
                             из-за страха отказались от вложений в маркетинг,
                         </li>
@@ -38,7 +38,7 @@
             <div class="reasons__title">
                 Что мы делаем для увеличения продаж и продвижения личностей сейчас?
             </div>
-            <ul class="list --no-offset">
+            <ul class="list --no-offset" role="list">
                 <li class="list__item">
                     Адаптируем продукт и личный бренд под актуальную повестку и нишу;
                 </li>

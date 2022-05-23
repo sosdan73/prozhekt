@@ -36,7 +36,7 @@
                     v-for="item in content.info"
                 >
                     <h3 class="modal__subtitle">{{ item.title }}</h3>
-                    <ul class="list --no-offset">
+                    <ul class="list --no-offset" role="list">
                         <li
                             class="list__item"
                             :key="listItem.text ? listItem.text : listItem"
@@ -46,6 +46,7 @@
                             <ul
                                 v-if="listItem.children"
                                 class="list"
+                                role="list"
                             >
                                 <li
                                     class="list__item"
