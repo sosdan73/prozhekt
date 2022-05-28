@@ -51,24 +51,26 @@ export default {
     flex-grow: 1;
 }
 
-$list: $orange, $blue, $purple, $dark-green, $dark-blue, $grey, $yellow, $red;
+$list: black, $orange, $blue, $purple, $dark-green, $dark-blue, $grey, $yellow, $red;
 @keyframes change_color {
     0% {
         color: nth($list, 1);
-    } 12% {
+    } 11% {
         color: nth($list, 2);
-    } 25% {
+    } 22% {
         color: nth($list, 3);
-    } 37% {
+    } 33% {
         color: nth($list, 4);
-    } 50% {
+    } 44% {
         color: nth($list, 5);
-    } 62% {
+    } 55% {
         color: nth($list, 6);
-    } 75% {
+    } 66% {
         color: nth($list, 7);
-    } 87% {
+    } 77% {
         color: nth($list, 8);
+    } 88% {
+        color: nth($list, 9);
     } 100% {
         color: nth($list, 1);
     }

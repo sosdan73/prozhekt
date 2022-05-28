@@ -109,7 +109,7 @@ export default {
 
                 let newIndex;
                 if (item) {  
-                    newIndex = item.id
+                    newIndex = Number(item.id.replace( /^\D+/g, ''));
                 } else {
                     newIndex = activeServices.tabs.length - 1 === index ? 0 : index + 1;
                 }

@@ -36,6 +36,19 @@ $pb: 1.1vw;
     padding: $pt $px $pb;
     border: 1px solid $grey;
     box-sizing: border-box;
+
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 1.2vw;
+        right: 1.6vw;
+        width: 1vw;
+        height: 1vw;
+        transform: rotate(45deg);
+        border-bottom: 1px solid $grey;
+        border-right: 1px solid $grey;
+    }
 }
 .label {
     position: absolute;
@@ -61,6 +74,7 @@ $pb: 1.1vw;
     box-sizing: border-box;
     font-family: 'PT Sans';
     font-weight: 400;
+    appearance: none;
 }
 @media (max-width: 660px) {
     $px: 4vw;
@@ -69,6 +83,13 @@ $pb: 1.1vw;
 
     .select-container {
         padding: $pt $px $pb;
+
+        &:after {
+            top: 3.3vw;
+            right: 4vw;
+            width: 3vw;
+            height: 3vw;
+        }
     }
     .label {
         left: $px;

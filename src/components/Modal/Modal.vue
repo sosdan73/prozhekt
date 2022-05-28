@@ -1,13 +1,15 @@
 <template>
     <div
-        class="modal"
         v-if="visible"
+        class="modal"
+        :class="{'--wide': content.id[0] === 's'}"
     >
         <div
             class="modal__overlay"
             @click="hide"
         ></div>
         <div
+            v-if="content.id[0] === 'c'"
             class="modal__image"
         >
             <img :src="`/images/${content.image ? content.image : 'lighthouse.png'}`" alt>
@@ -17,7 +19,7 @@
             <span class="cross__right-line"></span>
         </div>
         <div class="modal__main" v-if="content">
-            <div class="modal__content">
+            <div class="modal__content" v-if="content.id[0] === 'c'">
                 <div class="modal__row">
                     <h2 class="modal__title">
                         {{ content.title }}
@@ -59,6 +61,95 @@
                         </li>
                     </ul>
                 </div>
+                <div class="modal__row">
+                    <button
+                        class="pixel-button --block"
+                        @click="openFormCases()"
+                    >
+                        Хочу так же
+                    </button>
+                </div>
+            </div>
+            <div class="modal__content" v-else>
+                <div class="modal__row">
+                    <h2 class="modal__title">
+                        {{ Object.keys(content.titleMobile).join(' ') }}
+                    </h2>
+                </div>
+                <div class="modal__row">
+                    <h3
+                        v-if="content.listLeft.title"
+                        class="modal__subtitle"
+                    >
+                        {{ content.listLeft.title }}
+                    </h3>
+                    <ul
+                        class="list --no-offset"
+                        role="list"
+                    >
+                        <li
+                            class="list__item"
+                            :key="listItem.text ? listItem.text : listItem"
+                            v-for="listItem in servicesLists"
+                        >
+                            <span>{{ listItem.text ? listItem.text : listItem }}</span>
+                            <ul
+                                v-if="listItem.children"
+                                class="list"
+                                role="list"
+                            >
+                                <li
+                                    class="list__item"
+                                    :key="child"
+                                    v-for="child in listItem.children"
+                                >
+                                    {{ child }}
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal__row" v-if="content.listRight && content.listRight.title">
+                    <h3 class="modal__subtitle">
+                        {{ content.listRight.title }}
+                    </h3>
+                    <ul
+                        class="list --no-offset"
+                        role="list"
+                    >
+                        <li
+                            class="list__item"
+                            :key="listItem.text ? listItem.text : listItem"
+                            v-for="listItem in content.listRight.list"
+                        >
+                            <span>{{ listItem.text ? listItem.text : listItem }}</span>
+                            <ul
+                                v-if="listItem.children"
+                                class="list"
+                                role="list"
+                            >
+                                <li
+                                    class="list__item"
+                                    :key="child"
+                                    v-for="child in listItem.children"
+                                >
+                                    {{ child }}
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal__row">
+                    <div class="services__subtitle">Стоимость: {{ content.price }}</div>
+                </div>
+                <div class="modal__row">
+                    <button
+                        class="pixel-button --block"
+                        @click="openFormServices()"
+                    >
+                        Хочу так же
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -91,15 +182,31 @@ export default {
             document.body.style = '';
             this.visible = false;
         },
-        log() {
-            console.log('works')
-        }
+        openFormServices() {
+            setTimeout(() => {
+                this.hide();
+            }, 0);
+            this.$modalForm.show(`Модалка, услуги : ${Object.keys(this.content.titleMobile).join(' ')}`)
+        },
+        openFormCases() {
+            setTimeout(() => {
+                this.hide();
+            }, 0);
+            this.$modalForm.show(`Модалка, кейсы : ${this.content.title}`)
+        },
+    },
+    computed: {
+        servicesLists() {
+            return !this.content.listRight || this.content.listRight.title ?
+                    this.content.listLeft.list :
+                    [...this.content.listLeft.list, ...this.content.listRight.list];
+        },
     },
 }
 </script>
 
 <style lang="scss">
-@import '../../assets/sass/colors.scss';
+@import '../../assets/sass/colors';
 
 .modal,
 .modal__overlay {
@@ -117,7 +224,7 @@ export default {
 }
 .modal__overlay {
     z-index: 110;
-    background-color: rgba($color: #000000, $alpha: 0.3);
+    background-color: rgba($color: #000000, $alpha: 0.7);
 }
 .modal__image {
     position: fixed;
@@ -146,6 +253,9 @@ export default {
     cursor: pointer;
     transition: background-color .3s ease-in-out;
 }
+.modal.--wide .modal__cross {
+    right: 9.5vw;
+}
 .cross__left-line,
 .cross__right-line {
     width: 2.3vw;
@@ -169,6 +279,10 @@ export default {
     margin-bottom: 12.875vw;
     margin-right: 25.5vw;
     margin-left: 34.5vw;
+}
+.modal.--wide .modal__main {
+    margin-right: 15vw;
+    margin-left: 15vw;
 }
 .modal__content {
     padding: 4vw;
@@ -248,6 +362,9 @@ export default {
     }
     .modal__company-name {
         // padding: 1vw 0;
+    }
+    .list__item {
+        width: 90%;
     }
 }
 </style>

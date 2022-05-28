@@ -1,4 +1,4 @@
-import AppModal from '../components/Common/Modal.vue';
+import AppModal from '../components/Modal/Modal.vue';
 
 const Modal = {
     install(Vue, options) {

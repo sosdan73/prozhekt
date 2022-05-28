@@ -10,7 +10,7 @@
                 v-for="member in team"
             >
                 <div class="card__info">
-                    <img class="card__image" src="" alt>
+                    <img class="card__image" :src="`/images/people/${member.image}`" alt>
                     <h3 class="card__title">{{ member.name }}</h3>
                 </div>
                 <div class="card__row text-grey">

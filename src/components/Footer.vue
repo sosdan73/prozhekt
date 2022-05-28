@@ -64,7 +64,7 @@ export default {
     height: 4.7vw;
     position: absolute;
     z-index: 300;
-    top: -2.7vw;
+    top: -2.6vw;
     left: 11.5vw;
 
     background-size: cover;

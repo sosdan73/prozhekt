@@ -4,7 +4,7 @@ export const services = [
         isActive: true,
         tabs: [
             {
-                id: 0,
+                id: 's-0',
                 isActive: true,
                 naxHeight: '2000vw',
                 title: {
@@ -43,7 +43,7 @@ export const services = [
                 price: '100 000 руб.',
             },
             {
-                id: 1,
+                id: 's-1',
                 isActive: false,
                 naxHeight: '2100vw',
                 title: {
@@ -68,7 +68,7 @@ export const services = [
                 price: '100 000 руб.',
             },
             {
-                id: 2,
+                id: 's-2',
                 isActive: false,
                 naxHeight: '2200vw',
                 title: {
@@ -110,7 +110,7 @@ export const services = [
         isActive: false,
         tabs: [
             {
-                id: 0,
+                id: 's-0',
                 isActive: true,
                 naxHeight: '2300vw',
                 title: {
@@ -142,7 +142,7 @@ export const services = [
                 price: '150 000 руб. / мес.',
             },
             {
-                id: 1,
+                id: 's-1',
                 isActive: false,
                 naxHeight: '2400vw',
                 title: {
@@ -184,7 +184,7 @@ export const services = [
                 price: '225 000 руб. / мес. + рекламный бюджет',
             },
             {
-                id: 2,
+                id: 's-2',
                 isActive: false,
                 naxHeight: '2500vw',
                 title: {
@@ -217,7 +217,7 @@ export const services = [
                 price: 'индивидуально',
             },
             {
-                id: 3,
+                id: 's-3',
                 isActive: false,
                 naxHeight: '2600vw',
                 title: {
@@ -249,7 +249,7 @@ export const services = [
 
 export const casesPersonal = [
     {
-        id: 0,
+        id: 'c-0',
         title: 'Сделали 1,8 млн и 2 млн на охватах 450-500',
         subtitle: 'Запуск в нише наставничество по продюсированию:',
         img: '',
@@ -287,7 +287,7 @@ export const casesPersonal = [
         ],
     },
     {
-        id: 1,
+        id: 'c-1',
         title: 'Запуск за 1,5 дня на 1,2 млн',
         subtitle: 'Запуск в нише мотивация - вебинар:',
         img: '',
@@ -317,7 +317,7 @@ export const casesPersonal = [
         ],
     },
     {
-        id: 2,
+        id: 'c-2',
         title: 'Продажи на 12 млн. с микрочеком 250-350 рублей',
         subtitle: 'Запуск в нише фитнес - гайд:',
         img: '',
@@ -354,7 +354,7 @@ export const casesPersonal = [
         ],
     },
     {
-        id: 3,
+        id: 'c-3',
         title: 'Запуск без вложений в платформу на 4,5 млн',
         subtitle: 'Запуск в нише мотивация - курс:',
         img: '',
@@ -389,7 +389,7 @@ export const casesPersonal = [
 
 export const casesBusiness = [
     {
-        id: 0,
+        id: 'c-0',
         title: 'Солд-аут в первый месяц работы',
         companyName: 'Панавто Mercedes Benz.',
         subtitle: 'продажа автомобилей.',
@@ -435,7 +435,7 @@ export const casesBusiness = [
         ],
     },
     {
-        id: 1,
+        id: 'c-1',
         title: 'Благотворительный онлайн проект и диджитализация журнала за 1 месяц',
         companyName: 'Журнал The World Magazine.',
         subtitle: 'Интеллектуальный журнал.',
@@ -490,7 +490,7 @@ export const casesBusiness = [
         ],
     },
     {
-        id: 2,
+        id: 'c-2',
         title: 'Выход продукции в сетевые магазины: Азбука Вкуса и ВкусВилл',
         companyName: 'Сырки AMM!',
         subtitle: 'Сфера деятельности: Производство Веган-десертов, ретейл',
@@ -531,26 +531,31 @@ export const team = [
     {
         name: 'Василий Бондарев',
         status: 'Управляющий партнер',
+        image: 'vasiliy-b.jpg',
         descriptions: ['Отвечает за операционную деятельность.', 'Занимается улучшением рабочих процессов.']
     },
     {
         name: 'Анна Тирон',
         status: 'Директор по маркетингу, партнер',
+        image: 'anna.jpg',
         descriptions: ['Занимается с командой проектами наших любимых (всех) клиентов.', 'Отвечает за маркетинг агентства.']
     },
     {
         name: 'Георгий Хаусман',
         status: 'Управляющий партнер',
+        image: 'george.jpg',
         descriptions: ['Занимается стратегическим развитием агентства.', 'Отвечает за систематизацию новых направлений.']
     },
-    {
-        name: 'Василий Земсков',
-        status: 'Директор по работе с клиентами',
-        descriptions: ['Помогает выбрать наиболее подходящее решение.', 'Следит за удовлетворенностью клиентов.']
-    },
+    // {
+    //     name: 'Василий Земсков',
+    //     status: 'Директор по работе с клиентами',
+    //     image: 'vasiliy-z.jpg',
+    //     descriptions: ['Помогает выбрать наиболее подходящее решение.', 'Следит за удовлетворенностью клиентов.']
+    // },
     {
         name: 'Иван Бондарев',
         status: 'Senior-дизайнер',
+        image: 'ivan.jpg',
         descriptions: ['Занимается задачами дизайна и брендинга.', 'Отвечает за стиль и смыслы.']
     },
 ]

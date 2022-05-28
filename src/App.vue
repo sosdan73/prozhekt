@@ -8,8 +8,8 @@
 
 <script>
 import Main from "./components/Main.vue";
-import Modal from "./components/Common/Modal.vue";
-import ModalForm from "./components/Common/ModalForm.vue";
+import Modal from "./components/Modal/Modal.vue";
+import ModalForm from "./components/Modal/ModalForm.vue";
 
 export default {
     name: 'App',

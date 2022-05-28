@@ -1,5 +1,5 @@
 <template>
-    <div class="reasons section content-centered">
+    <div class="reasons section content-centered whitespace-large">
         <div>
             <div class="reasons__title">Почему нужно действовать?</div>
             <ul class="list --no-offset" role="list">

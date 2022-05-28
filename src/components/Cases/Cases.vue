@@ -12,7 +12,14 @@
                 кейсы: бизнес
             </h2>
             <Slider :data="casesBusiness"/>
-            <!-- <CasesSlider :cases="casesBusiness" /> -->
+        </div>
+        <div class="app__offset-l">
+            <button
+                class="pixel-button --black --outline"
+                @click="openForm()"
+            >
+                Оставить заявку
+            </button>
         </div>
     </div>
 </template>
@@ -30,7 +37,12 @@ export default {
             casesPersonal,
             casesBusiness
         }
-    }
+    },
+    methods: {
+        openForm() {
+            this.$modalForm.show('Кейсы');
+        }
+    },
 }
 </script>
 
@@ -43,14 +55,25 @@ export default {
 
     background-color: $lightgrey;
     
-    & > div:first-child {
+    & > div:not(:last-child) {
         margin-bottom: 6.5vw;
     }
 }
 
+
+
 @media (max-width: 660px) {
-    .cases > div:first-child {
+    .cases > div:not(:last-child) {
         margin-bottom: 17vw;
+    }
+}
+
+@media (min-width: 661px) {
+    .cases .pixel-button {
+        padding-left: 5vw;
+        padding-right: 5vw;
+        margin: auto;
+        display: block;
     }
 }
 </style>

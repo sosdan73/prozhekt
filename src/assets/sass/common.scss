@@ -27,6 +27,32 @@
         background-color: $white;
     }
 
+    &.--pink {
+        border-color: black;
+        color: $pink;
+        background-color: black;
+
+        &.--outline {
+            color: black;
+            background-color: transparent;
+        }
+    }
+
+    &.--black {
+        border-color: black;
+        color: $white;
+        background-color: black;
+
+        &.--outline {
+            color: black;
+            background-color: transparent;
+        }
+    }
+
+    &.--block {
+        width: 100%;
+    }
+
     outline: none;
     border-radius: 0;
     padding: 1.3vw 1.7vw 0.8vw;
@@ -47,6 +73,26 @@
         &.--outline {
             color: $white;
             background-color: $orange;
+        }
+
+        &.--pink {
+            color: black;
+            background-color: transparent;
+
+            &.--outline {
+                color: $pink;
+                background-color: black;
+            }
+        }
+
+        &.--black {
+            color: black;
+            background-color: transparent;
+
+            &.--outline {
+                color: $white;
+                background-color: black;
+            }
         }
     }
 }
@@ -124,6 +170,10 @@
 
 .arrow-svg > svg {
     transition: fill .2s ease-in-out;
+}
+
+.whitespace-large {
+    word-spacing: 0.15vw;
 }
 
 @media (max-width:660px) {
@@ -204,5 +254,9 @@
     }
     .circle__border {
         border: 3.5vw solid $orange;
+    }
+
+    .whitespace-large {
+        word-spacing: normal;
     }
 }

@@ -16,17 +16,15 @@
                 <div>{{ item.companyName ? item.companyName : item.subtitle }}</div>
             </div>
         </div>
-        <div class="slider__arrows app__offset-s">
-            <Arrow
-                class="slider__arrow"
-                reversed
-                @click="prevCard"
-            />
-            <Arrow
-                class="slider__arrow --right"
-                @click="nextCard"
-            />
-        </div>
+        <Arrow
+            class="slider__arrow"
+            reversed
+            @click="prevCard"
+        />
+        <Arrow
+            class="slider__arrow --right"
+            @click="nextCard"
+        />
     </div>
 </template>
 
@@ -200,21 +198,17 @@ export default {
     font-family: "Montserrat-Bold";
     margin-bottom: 2vw;
 }
-.slider__arrows {
-    display: flex;
+.slider__arrow {
     position: absolute;
     top: 7.35vw;
-    left: 0;
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 100;
-}
-.slider__arrow {
     width: 4.2vw;
     height: 3.59vw;
+    left: 3.125vw;
+    z-index: 200;
 
     &.--right {
-        margin-left: auto;
+        left: unset;
+        right: 3.125vw;
     }
 }
 
@@ -238,18 +232,6 @@ export default {
     .slider__card {
         width: calc(100vw * 512 / 576);
         margin-right: 1.8vw;
-
-        &::after {
-            content: " ";
-            display: block;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: #ddd;
-            z-index: 600;
-            top: 0;
-            left: 0;
-        }
     }
     .slider__image {
         height: 65.625vw;
@@ -258,21 +240,18 @@ export default {
     .slider__title {
         font-size: 5.9vw;
         font-family: "Montserrat-ExtraBold";
+        margin-top: 17.46vw;
         margin-bottom: 6vw;
-    }
-    .slider__arrows {
-        top: 9.55vw;
-        left: 0.35vw;
-        width: 100%;
-        box-sizing: border-box;
-        z-index: 200;
     }
     .slider__arrow {
         width: 12.85vw;
         height: 11.46vw;
+        top: 72.35vw;
+        left: 5.73vw;
 
         &.--right {
-            margin-left: auto;
+            left: unset;
+            right: 5.73vw;
         }
     }
     

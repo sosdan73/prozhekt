@@ -1,4 +1,4 @@
-import AppForm from '../components/Common/ModalForm.vue';
+import AppForm from '../components/Modal/ModalForm.vue';
 
 const ModalForm = {
     install(Vue, options) {
@@ -6,8 +6,8 @@ const ModalForm = {
         Vue.component('modalForm', AppForm)
 
         Vue.prototype.$modalForm = {
-            show() {
-                ModalForm.EventBus.$emit('show')
+            show(params) {
+                ModalForm.EventBus.$emit('show', params)
             }
         }
     }

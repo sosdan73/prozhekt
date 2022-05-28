@@ -47,9 +47,9 @@
 <script>
 import axios from 'axios';
 import ModalForm from '../../plugins/modalForm';
-import FormInput from './FormInput.vue';
-import FormTextarea from './FormTextarea.vue';
-import FormSelect from './FormSelect.vue';
+import FormInput from '../Common/FormInput.vue';
+import FormTextarea from '../Common/FormTextarea.vue';
+import FormSelect from '../Common/FormSelect.vue';
 import { Escapable } from '@/mixins/Escape';
 
 const voidData = {
@@ -58,7 +58,9 @@ const voidData = {
     tg: '',
     info: '',
     howToReach: 'телефон',
+    source: 'main',
 }
+const sources = ['main', '','','']
 
 export default {
     name: 'ModalForm',
@@ -71,12 +73,12 @@ export default {
         }
     },
     beforeMount() {
-        ModalForm.EventBus.$on('show', () => {
-            this.show()
+        ModalForm.EventBus.$on('show', (params) => {
+            this.show(params)
         })
     },
     methods: {
-        show() {
+        show(params) {
             document.body.style = 'overflow: hidden;';
             this.visible = true;
         },
@@ -99,7 +101,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../assets/sass/colors.scss';
+@import '../../assets/sass/colors';
 
 .modal,
 .modal__overlay {
@@ -111,7 +113,7 @@ export default {
 }
 .modal__overlay {
     z-index: 110;
-    background-color: rgba($color: #000000, $alpha: 0.3);
+    background-color: rgba($color: #000000, $alpha: 0.7);
 }
 .form {
     display: flex;
@@ -214,7 +216,7 @@ export default {
         background-image: none;
     }
     .form__header {
-        margin-top: 6vw;
+        margin-top: 20vw;
         width: 100%;
     }
     .form__title {

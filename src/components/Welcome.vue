@@ -44,7 +44,7 @@ export default {
     components: { Arrow, },
     methods: {
         openForm() {
-            this.$modalForm.show();
+            this.$modalForm.show('Главный экран');
         }
     },
 }
