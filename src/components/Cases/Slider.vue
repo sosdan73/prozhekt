@@ -10,7 +10,7 @@
                 @click="openModal(item, index)"
             >
                 <div class="slider__image">
-                    <img :src="`/images/${item.image ? item.image : 'lighthouse.png'}`" alt>
+                    <img :src="`/images/${item.image}`" alt>
                 </div>
                 <h3 class="slider__title">{{ item.title }}</h3>
                 <div>{{ item.companyName ? item.companyName : item.subtitle }}</div>

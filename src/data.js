@@ -252,7 +252,7 @@ export const casesPersonal = [
         id: 'c-0',
         title: 'Сделали 1,8 млн и 2 млн на охватах 450-500',
         subtitle: 'Запуск в нише наставничество по продюсированию:',
-        img: '',
+        image: 'producer.jpg',
         info: [
             {
                 title: 'Особенности запуска:',
@@ -290,7 +290,7 @@ export const casesPersonal = [
         id: 'c-1',
         title: 'Запуск за 1,5 дня на 1,2 млн',
         subtitle: 'Запуск в нише мотивация - вебинар:',
-        img: '',
+        image: 'motivation2.jpg',
         info: [
             {
                 title: 'Особенности запуска:',
@@ -320,7 +320,7 @@ export const casesPersonal = [
         id: 'c-2',
         title: 'Продажи на 12 млн. с микрочеком 250-350 рублей',
         subtitle: 'Запуск в нише фитнес - гайд:',
-        img: '',
+        image: 'fitness.jpg',
         info: [
             {
                 title: 'Особенности запуска:',
@@ -357,7 +357,7 @@ export const casesPersonal = [
         id: 'c-3',
         title: 'Запуск без вложений в платформу на 4,5 млн',
         subtitle: 'Запуск в нише мотивация - курс:',
-        img: '',
+        image: 'motivation1.jpg',
         info: [
             {
                 title: 'Особенности запуска:',
