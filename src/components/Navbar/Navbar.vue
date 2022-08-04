@@ -2,7 +2,7 @@
     <header class="header app__offset-s">
         <h1 class="header__logo">Прожект</h1>
         <div class="header__subtitle">
-            <div class="--wordbreak">Маркетинговое агенство</div>
+            <div class="--wordbreak">Маркетинговое агентство</div>
         </div>
         <NavbarLinks @onScroll="goTo"/>
     </header>
