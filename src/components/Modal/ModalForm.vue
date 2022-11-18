@@ -22,20 +22,22 @@
                 placeholder="Телефон*"
             />
             <FormInput
-                :model.sync="form.tg"
+                :model.sync="form.telegram"
                 placeholder="Telegram"
             />
             <FormTextarea
                 class="form__textarea"
-                :model.sync="form.info"
+                :model.sync="form.text"
                 placeholder="Ваш запрос"
             />
             <FormSelect
-                :model.sync="form.howToReach"
+                :model.sync="form.conn_type"
                 placeholder="Удобный способ связи"
             />
             <button
                 class="pixel-button form__submit"
+                :class="{ '--invalid': !formIsValid }"
+                :disabled="!formIsValid"
                 @click="onSubmit"
             >
                 Отправить заявку
@@ -55,9 +57,9 @@ import { Escapable } from '@/mixins/Escape';
 const voidData = {
     name: '',
     phone: '',
-    tg: '',
-    info: '',
-    howToReach: 'телефон',
+    telegram: '',
+    text: '',
+    conn_type: 'телефон',
     source: 'main',
 }
 const sources = ['main', '','','']
@@ -88,13 +90,45 @@ export default {
             this.visible = false;
         },
         async onSubmit() {
-            axios.post('link-here', {
-                data: this.form
-            }).then(() => {
-                this.hide();
-            }).catch(err => {
-                console.error(err);
-            })
+            if (this.formIsValid) {
+                let data = {...this.form};
+                delete(data.source)
+                // axios.post('http://45.80.69.246:8081/form', data, {
+                //     headers: {
+                //         "Content-Type": "application/json",
+                //         'Access-Control-Allow-Origin': '*',
+                //         'accept': 'application/json',
+                //     },
+                // //
+                // // fetch('http://45.80.69.246:8081/form', {
+                // //     method: 'POST',
+                // //     headers: {
+                // //       'accept': 'application/json',
+                // //       'Content-Type': 'application/json',
+                // //       'Access-Control-Allow-Origin': '*',
+                // //     },
+                // //     body: JSON.stringify(data)
+                // }).then((data) => {
+                //     console.log(data)
+                //     this.hide();
+                // }).catch(err => {
+                //     console.error(err);
+                // })
+                axios.post('https:\/\/45.80.69.246:8081/form', data)
+                .then((data) => {
+                    console.log(data)
+                    this.hide();
+                }).catch(err => {
+                    console.error(err);
+                })
+            }
+        }
+    },
+    computed: {
+        formIsValid() {
+            return  this.form.telegram &&
+                    this.form.name &&
+                    this.form.phone
         }
     },
 }
@@ -168,6 +202,10 @@ export default {
     width: fit-content;
     padding-top: 0.7vw;
     padding-bottom: 0.3vw;
+
+    &.--invalid {
+      cursor: not-allowed;
+    }
 }
 @media (max-width:660px) {
     .modal {
