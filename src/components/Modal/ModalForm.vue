@@ -114,7 +114,7 @@ export default {
                 // }).catch(err => {
                 //     console.error(err);
                 // })
-                axios.post('https:\/\/45.80.69.246:8081/form', data)
+                axios.post('https:\/\/api-prozhekt.ru:8081/form', data)
                 .then((data) => {
                     console.log(data)
                     this.hide();
