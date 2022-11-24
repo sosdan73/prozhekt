@@ -114,7 +114,11 @@ export default {
                 // }).catch(err => {
                 //     console.error(err);
                 // })
-                axios.post('https:\/\/api-prozhekt.ru:8081/form', data)
+                axios.post('https:\/\/api-prozhekt.ru:8081/forma', data, {
+                  headers: {
+                    'Access-Control-Allow-Origin': '*'
+                  }
+                })
                 .then((data) => {
                     console.log(data)
                     this.hide();
